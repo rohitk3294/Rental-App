@@ -11,6 +11,7 @@ import { RentalModule } from './rental/rental.module';
 
 
 
+
 const routes: Routes = [
 {path: '', redirectTo: '/rentals' , pathMatch: 'full'},
 ]
@@ -21,6 +22,7 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     HeaderComponent,
+  
  
   ],
   imports: [
