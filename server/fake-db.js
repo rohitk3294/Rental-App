@@ -6,7 +6,7 @@ class FakeDb {
   constructor() {
     ﻿this.rentals = [{
       title: "Nice view on ocean",
-      city: "San Francisco",
+      city: "Noida",
       street: "Main street",
       category: "condo",
       image: "https://booksync-jerga-prod.s3.amazonaws.com/uploads/rental/image/5/image.jpeg",
@@ -17,7 +17,7 @@ class FakeDb {
       },
       {
       title: "Modern apartment in center",
-      city: "New York",
+      city: "New Dehli",
       street: "Time Square",
       category: "apartment",
       image: "https://booksync-jerga-prod.s3.amazonaws.com/uploads/rental/image/5/image.jpeg",
@@ -28,7 +28,7 @@ class FakeDb {
       },
       {
       title: "Old house in nature",
-      city: "Spisska Nova Ves",
+      city: "Agra",
       street: "Banicka 1",
       category: "house",
       image: "https://booksync-jerga-prod.s3.amazonaws.com/uploads/rental/image/5/image.jpeg",
@@ -38,9 +38,8 @@ class FakeDb {
       dailyRate: 23
 }]
 }
-
+ /* function for Remove alredy exist data Now use deleteMany instead of remove */
 async cleanDb(){
-  /* Now use deleteMany instead of remove */
  await Rental.deleteMany({});
 }
 

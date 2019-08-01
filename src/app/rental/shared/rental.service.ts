@@ -1,11 +1,107 @@
 import { Injectable } from '@angular/core';
 import { Observable } from "rxjs/Rx"
+import { HttpClient } from '@angular/common/http';
+
 
 import {Rental} from "../shared/rental.model"
 
 @Injectable()
-export class RentalService {
+export class RentalService {  
 
+constructor(private http: HttpClient){}
+public getRentalById(rentalId: string): Observable<any> {
+  return this.http.get('/api/v1/rentals/' + rentalId);
+}
+ 
+ 
+     
+  public getRentals(): Observable<any>{
+
+    return this.http.get('/api/v1/rentals')
+  }
+
+
+
+
+
+}
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* when we happ no api data
   private  rentals: Rental[] = [{
         id: "1",
         title: "Central Apartment",
@@ -57,10 +153,10 @@ export class RentalService {
         dailyRate: 33,
         shared: true,
         createdAt: "24/12/2017"
-    }];
+    }]; */
 
 
-    public getRentalById(rentalId: string): Observable<Rental> {
+/*     public getRentalById(rentalId: string): Observable<Rental> {
      return  new Observable((observer) => {
             setTimeout(() =>{
               const foundRental= this.rentals.find((rental)=> {
@@ -73,11 +169,11 @@ export class RentalService {
 
      public getRentals(): Observable<Rental[]>{
      return new Observable<Rental[]>((observer) => {
-       /*  Here we call Asyncrounous Function with Defining observers to understand Observer*/
+        Here we call Asyncrounous Function with Defining observers to understand Observer
         setTimeout(() =>{
             observer.next(this.rentals);
         }, 1000);
-
+ */
 
     /* For only learning purpose   
        setTimeout(() =>{
@@ -86,10 +182,10 @@ export class RentalService {
         setTimeout(() =>{
             observer.complete();
         }, 3000);
-     */
+     
 
     });
     //   return rentalObservable;
-    }
-}
+    }*/
+
 
