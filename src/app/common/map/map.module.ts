@@ -20,7 +20,7 @@ exports: [
 
 imports: [
   AgmCoreModule.forRoot({
-    apiKey: 'AIzaSyAvcDy5ZYc2ujCS6TTtI3RYX5QmuoV8Ffw'
+    apiKey: 'AIzaSyAmjvKYZxHtw3zN9Ws35g5PjaNUfuTcbgk'
   }),
   CommonModule
 ],
