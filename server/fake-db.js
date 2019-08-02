@@ -1,4 +1,5 @@
 const Rental = require('./models/rental');
+const User =require('./models/user')
 
 
 class FakeDb {
@@ -37,25 +38,37 @@ class FakeDb {
       description: "Very nice apartment in center of the city.",
       dailyRate: 23
 }]
-}
- /* function for Remove alredy exist data Now use deleteMany instead of remove */
-async cleanDb(){
- await Rental.deleteMany({});
+  this.users =[{
+  username: "TestUser1",
+  email: "rohitkumar@gmail.com",
+  password: "testtest"
+  }];
 }
 
-  pushRentalsToDb() {
-  
+
+ /* function for Remove already exist data Now use deleteMany instead of remove */
+async cleanDb(){
+  await User.deleteMany({}); 
+  await Rental.deleteMany({});
+}
+
+  pushDataToDb() {
+  const user= new User(this.users[0]);
     this.rentals.forEach((rental) => {
       const newRental = new Rental(rental);
-  
+
+      newRental.user= user;
+
+      user.rentals.push(newRental);
       newRental.save();
-    })
+    });
+    user.save();
   }
 
 
-seedDb() {
-this.cleanDb();
-    this.pushRentalsToDb();
+  async seedDb() {
+   await this.cleanDb();
+    this.pushDataToDb();
   }
 }
 
